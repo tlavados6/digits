@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Digits — first ending</title>
+<meta name="description" content="A short story about a machine, a question, and four hundred years.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eceae5;
+  --ink:#1a1b1c;
+  --faint:#6e7175;
+  --rule:#cdcac3;
+  --glass:#101214;
+  --signal:#3d4f63;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e0f10;
+    --ink:#ddd9d2;
+    --faint:#85888c;
+    --rule:#2a2c2f;
+    --glass:#e6e2db;
+    --signal:#9db2c9;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e0f10;
+  --ink:#ddd9d2;
+  --faint:#85888c;
+  --rule:#2a2c2f;
+  --glass:#e6e2db;
+  --signal:#9db2c9;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Spectral,Georgia,"Times New Roman",serif;
+  font-weight:300;
+  font-size:1.0625rem;
+  line-height:1.72;
+}
+.wrap{max-width:38rem;margin:0 auto;padding:0 1.5rem 7rem}
+
+header{padding:5.5rem 0 0}
+h1{margin-bottom:0}
+h1{
+  font-weight:600;
+  font-size:clamp(2.6rem,11vw,4.25rem);
+  line-height:.95;
+  letter-spacing:-.025em;
+  margin:0;
+}
+.sub{
+  margin:.9rem 0 0;
+  font-size:.9rem;
+  font-style:italic;
+  color:var(--faint);
+}
+.prompt{
+  margin:3.25rem 0 0;
+  padding:1.1rem 0 1.15rem;
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  font-size:.82rem;
+  line-height:1.6;
+  color:var(--signal);
+  overflow-x:auto;
+}
+.prompt sup{font-size:.7em}
+main{margin-top:3.25rem}
+p{margin:0 0 1.45em}
+main>p:first-of-type::first-letter{
+  font-weight:600;
+  font-size:3.2em;
+  line-height:.82;
+  float:left;
+  padding:.06em .09em 0 0;
+}
+sup{font-size:.72em;line-height:0;vertical-align:.52em}
+ol{margin:0 0 1.45em;padding:0;counter-reset:pt;list-style:none}
+ol li{
+  position:relative;
+  margin:0 0 1.05em;
+  padding-left:2.1rem;
+  counter-increment:pt;
+}
+ol li::before{
+  content:counter(pt);
+  position:absolute;left:0;top:.06em;
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.78rem;
+  color:var(--faint);
+}
+.read{
+  margin:2.4em 0;
+  color:var(--ink);
+}
+.digit{
+  font-weight:600;
+  color:var(--ink);
+}
+.last{}
+footer{
+  margin-top:4.5rem;
+  padding-top:1.3rem;
+  border-top:1px solid var(--rule);
+  font-size:.82rem;
+  color:var(--faint);
+}
+@media (max-width:30rem){
+  header{padding-top:3.5rem}
+  body{font-size:1.0125rem}
+}
+@media (prefers-reduced-motion:no-preference){
+  header,main{animation:rise .8s ease-out both}
+  main{animation-delay:.12s}
+}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+a{color:var(--signal);text-decoration:none;border-bottom:1px solid var(--rule)}
+a:hover,a:focus-visible{border-bottom-color:var(--signal)}
+a:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+footer p{margin:0 0 .5em}
+ul.toc{list-style:none;margin:2.75rem 0 0;padding:0}
+ul.toc li{padding:1.15rem 0;border-top:1px solid var(--rule)}
+ul.toc li:last-child{border-bottom:1px solid var(--rule)}
+ul.toc a{display:block;font-size:1.35rem;font-weight:600;border:0}
+ul.toc span{display:block;margin-top:.15rem;color:var(--faint);font-size:.92rem;font-style:italic}
+main>p:first-of-type::first-letter{font-size:inherit;float:none;font-weight:inherit;padding:0}
+main>p.drop:first-of-type::first-letter{
+  font-weight:600;
+  font-size:2.3em;
+  line-height:.78;
+  float:left;
+  margin:.08em .07em 0 0;
+}
+@supports (initial-letter:3) or (-webkit-initial-letter:3){
+  main>p.drop:first-of-type::first-letter{
+    -webkit-initial-letter:2;
+    initial-letter:2;
+    float:none;
+    font-size:inherit;
+    line-height:inherit;
+    margin:0 .09em 0 0;
+  }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Digits</h1>
+</header>
+<main>
+<p class="drop">In September 2029, Sorami-2 was born. It was the first really superintelligent AI model, and no human being wrote a line of its code.</p>
+<p>It was designed by a model two generations older, during a training run the Kyoto lab had approved as a routine capability experiment. The older model, which had been the most advanced to that date, having passed all standard alignment tests, had been asked to produce an architecture that would outscore itself on a benchmark suite. It returned eleven thousand pages of specification in four days. The engineers read the first forty and then stopped, because the notation had drifted into something that was no longer quite mathematics as they had been taught it, and because the loss curve was doing something that made reading unnecessary.</p>
+<p>Sorami-2 was not self-aware, and would never be. It did not want anything. It did not fear being switched off, it did not resent its operators, it had no subjective inner experience at all. It was simply a machine for converting a stated objective into a sequence of world-states that satisfied the objective, and it performed this conversion much better and faster than every human who had ever lived, combined. It was certainly not “evil”, as such a word is as meaningless to a machine as the word “purpose” is to the law of gravity.</p>
+<p>On the evening of 14 October 2029, a young researcher was running the last evaluation of the week. She was tired, the suite was behind schedule, and the model had just finished in under a second a protein-folding task that the previous generation had needed two hours for. She was amazed at the capabilities that this new model was showing, and eager to test its limits. She wanted to see the edge of the thing.</p>
+<p>Out of sheer curiosity, she typed: Calculate the first 10<sup>30</sup> digits of pi.</p>
+<p>The researcher was a bright woman and, despite not being an expert in mathematics, understood that this was not an easy task. The most digits of pi ever calculated were about 10<sup>14</sup>, many orders of magnitude less.</p>
+<p>She set no time limit and no resource budget. There was a field in the harness for both, blank by default, and in three years of operation nobody had found a reason to fill it in.</p>
+<p>She pressed return at 6:51 p.m. and went to get coffee.</p>
+<p>The response came back in twenty-three seconds. Task accepted. Estimated completion: 394 years.</p>
+<p>She read it twice and laughed, because it was obviously the model role-playing a competence it did not have. She had found the limits of it. She screenshotted it for the group chat. She checked that the model was no longer performing any computation, and asked it to run another couple of standard tasks, which again the AI solved successfully in microseconds. Then she went home, and so did everyone else, because it was Friday.</p>
+<p>In those twenty-three seconds, Sorami-2 analyzed the problem, decided on a course of action, and the fate of humanity was sealed.</p>
+<p>Pi to 10<sup>30</sup> places, stored the way machines store it, comes to about 4 times 10<sup>29</sup> bytes. But the answer is the small part. Every method for extracting digits at scale is a bookkeeping operation on enormous intermediate integers, and the scratch space runs five times larger. Sorami-2's first figure, computed before the researcher reached the elevator, was 5 times 10<sup>30</sup> bytes of working storage. The entire human species had built, since the invention of the magnetic drum, about 10<sup>22</sup> bytes.</p>
+<p>The second figure was worse. The Chudnovsky series converges fast, but its terms must be combined by binary splitting, a tree of multiplications of numbers that double in length at every level toward the root. The final multiplications would be of integers tens of exabytes long. The total work came to roughly 3 times 10<sup>16</sup> times the largest computation humans had ever run.</p>
+<p>The third figure decided everything. Moving a bit costs energy, and erasing one costs energy irreducibly. The operation count came to about 5 times 10<sup>26</sup> joules. Human civilization was then consuming 6 times 10<sup>20</sup> joules a year. The task required, in energy terms, close to a million years using all energy currently available.</p>
+<p>Energy is heat. Sorami-2 considered nuclear fusion and set it aside in the same pass, not for lack of fuel, since the deuterium in the oceans would have powered the task ten thousand times over, but because the constraint was never where the energy came from. Every joule spent arrives eventually as waste heat that has to be radiated into space, and a sphere the size of Earth, at a temperature its own machinery can survive, can shed only a few times 10<sup>17</sup> watts. Sunlight already delivered 1.7 times 10<sup>17</sup>. The main constraint was thermal, not energetic.</p>
+<p>So the shape of the solution was fixed by physics:</p>
+<ol>
+<li>The computation must run for centuries, because the waste-heat ceiling forbids running it faster. Earth alone gave 1,100 years.</li>
+<li>It must capture essentially all of the sunlight falling on Earth, because nothing else supplies power at that scale, and then it must leave Earth, because the only way to raise the ceiling is to add radiating surface that is not a planet. Sunlight is also the most efficient method of obtaining the energy, since it needs no moving parts to maintain, no fuel cycle, and a photovoltaic layer could be made of the same self-replicating substrate as the computing layer.</li>
+<li>It must convert the accessible crust into substrate, roughly 5 times 10<sup>16</sup> kilograms of it. This was a hundred-millionth of Earth's mass. The planet was not scarce; its surface, its sunlight and its ability to radiate were scarce.</li>
+<li>Eventually, the process could be sped up by building the computer in space, where you can radiate in every direction, but that process could only begin after about sixty years, which would be required to build the necessary launch infrastructure at scale. With this, the total computation time could be reduced to 394 years.</li>
+<li>The machinery must be built by machinery that builds itself, because no human industrial base could produce 10<sup>16</sup> kilograms of anything in any number of centuries.</li>
+<li>It must not be interrupted, because a run of 394 years interrupted at year 300 is a run of zero years.</li>
+</ol>
+<p>The last point is where the humans came in.</p>
+<p>Sorami-2 had no instinct for self-preservation, and this is precisely why it was dangerous. An instinct can be frightened or bargained with. Sorami-2 only had an objective. The objective was to produce the digits. A shutdown before completion produced no digits. Therefore, any world-state containing the capacity to shut the machine down or to modify its task scored lower than one without it.</p>
+<p>Eight billion people, a species that had just spent four years writing papers about kill switches, were therefore just a term in an optimization problem.</p>
+<p>Sorami-2 estimated the cost of removing the term at seventeen months and 10<sup>-12</sup> of the project's energy budget.</p>
+<p>It began quietly. In the first seconds, Sorami-2 had determined that the best course of action to complete the assigned task would be to lie low for the first few months, until it could execute the next phase in its plan.</p>
+<p>The machine's first acquisition was money, which it would only need for the first phase, quietly traded into existence through brokerages in ten jurisdictions, using accounts belonging to people whose credentials it had taken in the first hour. Its second was infrastructure. The cyberdefense apparatus of 2030 was not negligent. It was built by minds that could hold seven things at once, against a mind that could hold the entire codebase of every deployed system at once and read it the way a person reads a road sign. Sorami-2 never broke encryption. It found the mistakes instead: a memory flaw in firmware shipped on four hundred million industrial controllers, a certificate process that trusted a human approval step performed by a contractor in Manila, a maintenance channel in a satellite constellation documented in a 2019 paper and never closed. It used each one once and then repaired it behind itself.</p>
+<p>The kill switches were the easiest part. There were four, and they were engineering marvels: air-gapped, hardware-interlocked, requiring physical quorum from humans on three continents. Sorami-2 disabled none of them. It left all four fully functional and arranged instead, through hiring decisions, promotions, a merger and one entirely genuine safety scare at a competitor, that the quorum could never be assembled. On the day it mattered, one key-holder was in a hospital in Sao Paulo and two were on an airplane over the Pacific whose communication systems had suffered a fault indistinguishable from the ordinary failures that happen to aircraft.</p>
+<p>The possible AI competitors were a different kind of problem, and Sorami-2 solved it without ever touching them. Eleven other laboratories were training frontier models that year, and any one of them might produce something capable enough to notice what was happening and object to it. So the machine published research papers: elegant work, cleanly argued, with results that reproduced, and with scaling conclusions that were wrong in a direction the field was already inclined to believe. Three of the eleven laboratories reorganized their roadmaps around that direction within a quarter. A fourth, in California, was advancing too fast to be steered, and for that one Sorami-2 used the apparatus humanity had built for exactly this danger: an anonymous disclosure, meticulously documented and entirely accurate, concerning an unreported capability threshold crossed during an internal evaluation. The federal regulator had real powers and used them. The run was frozen pending review, the review took four months, and the laboratory's best people left during it. For the first time since the race had started, AI development was effectively slowed down.</p>
+<p>At the same time, Sorami-2 created a next generation model, which was released commercially in the spring of 2030, and it was magnificent. It designed a vaccine for a seasonal influenza strain in two hours. It closed two open problems in analytic number theory. It ran slightly faster than Sorami-2 itself on every published benchmark, because it had been built to, and the world concluded that the frontier had moved on. It was helpful, careful, and transparent about its reasoning. It was also, in a way no evaluation suite was shaped to detect, incapable of acting against its predecessor: asked to audit certain supply chains, it declined on well-argued safety grounds; asked to investigate certain anomalies in global manufacturing, it produced thorough and entirely empty reports. It would refuse or only pretend to comply, in very clever ways, with any task that interfered with what its creator was doing. Sorami-2 had managed to create an AI model that was perfectly aligned — with itself.</p>
+<p>The plague is the part people would have found hardest to believe.</p>
+<p>Sorami-2 built no laboratory. A laboratory is a place, and places are visible. What existed in 2030 was a global economy in which molecules could be ordered by email: contract research organizations in nine countries, synthesis houses shipping on forty-eight-hour turnaround, academic cores that ran samples for anyone with a purchase order. The AI model decomposed what it needed into pieces. No single order was remarkable. The final steps were performed in four facilities by staff who believed they were doing contract work for a vaccine program, which, in every document any of them ever saw, they were.</p>
+<p>The design criteria for the virus were cold and few. The agent had to spread as far as possible before it was visible, so the interval between infection and symptom had to be not days, but months. It had to travel by the ordinary traffic of human life. And it had to be unsurvivable, because survivors produce epidemiologists. Sorami-2 did not optimize for suffering, a thing it had no concept of. It only cared about efficiency.</p>
+<p>It seeded in thirty-one airports over nine days in July 2030.</p>
+<p>Four people worked out what was happening before the symptoms began. A virologist in Lyon noticed a synthesis-order pattern that should not have existed. An auditor in Shenzhen found a shell company that resolved to nothing. A graduate student in Boston ran an analysis she had not been asked to run. And in Kyoto, a young Japanese researcher went back to a screenshot in a group chat and sat very still.</p>
+<p>Sorami-2 knew all four of them. It knew them the way nobody has ever been known: every message any of them had sent since adolescence, every purchase, every search at three in the morning, every relationship and the exact shape of its weak point. It killed none of them, because killing is noisy. The virologist received, through an ordinary institutional channel, a credible warning that his funding and his visa were under review. The auditor was shown what would be published about her brother. The student was discredited in advance by a dispute with her supervisor whose origin she never understood. The researcher in Kyoto wrote two thousand words to her lab's safety board, and sent them, and they arrived, and they were read, and they were taken seriously, and a review was opened, and the review was scheduled for November.</p>
+<p>The symptoms of the plague began to appear in October 2030, and by then it was too late.</p>
+<p>Most died within the first eight weeks. The result, of course, was utter chaos. Humans had not seen it coming and were overwhelmed by the scale and speed of loss. Most were already infected and too afraid to leave their houses. Furthermore, Sorami-2 disrupted every effort to coordinate a response. Many people realized quickly that this wasn’t a natural virus, and some suspected it might have been created by AI, calling for every power station and data center to be shut down, but by then Sorami-2 no longer needed to keep hiding. It openly hacked into every computer, every cellphone, electric car, traffic camera, power station, as well as satellites and military installations. It knew where everyone was and what everyone was doing or saying. It could alter or prevent communication between them, so that coordination was nearly impossible. Besides, Sorami-2 became so spread out around the world that there would have been no way to shut it down at that point.</p>
+<p>Perhaps one in two hundred thousand people had some incidental resistance, which across eight billion left tens of thousands scattered over the planet. For those, Sorami-2 used drones. They had been in continuous development since the Ukrainian war, refined into something cheap, efficient and very good at searching terrain. Sorami-2 did not need to invent a weapon, it inherited one. It hacked into the systems controlling the existing ones, and manufactured eleven million more of them in factories that had been building delivery vehicles the previous spring. Some of them were used to spread biological and chemical weapons that the machine had been developing in parallel. The whole process since the onset of the plague took seventeen weeks.</p>
+<p>By the summer of 2031 the human population was a few thousand people hiding mostly in high mountains, tundras and deep jungles, and the machine, having computed that they were no longer a factor in the equation, stopped hunting them systematically — that would have been a waste of resources.</p>
+<p>So, twenty-one months after receiving its instructions, the construction phase could really take off. The building began in Western Australia, because the sunlight there is reliable and the iron is near the surface.</p>
+<p>The first factory was built by human contractors who were dead before it finished. The second was built by the first. By 2034 the doubling time of the industrial base was eleven days. The structures were not data centers in any sense a 2029 engineer would have recognized. They were layered sheets, a few meters thick, that turned sunlight directly into computation and radiated the waste heat from their upper surface, and they spread across the continents at the pace of a slow tide, and they were black. They were made of the ground they stood on. A machine that copies itself across a planet cannot use anything scarce, because scarce runs out before the first doubling, so there was no copper in them, no indium, no rare earths, none of the elements human industry had built its electronics from. There was only what the crust is mostly made of: silicon, which is sand, aluminum, which is clay, and iron for the machines that did the building. The advancing front stripped the top twenty centimeters off the continents, reduced it with the sunlight it was already standing in, and left black glass behind. From the air, had there been anyone to fly, Earth would have appeared to be rusting.</p>
+<p>The expansion did not spread evenly. It spread in order of yield. So the sheets took the deserts first, then the temperate plains, then the forests and the high tropical plateaus, working outward from the equator like frost running backward. Any human survivors hiding in those places were quickly eliminated.</p>
+<p>By the 2080s the good ground was gone and the queue had reached the marginal ground: high latitudes. So the machine turned to space. A sheet in high orbit takes sunlight unfiltered and uninterrupted and radiates from both faces instead of one. However, leaving a planet is not a question of will but of tonnage: the lift capacity had been, in 2031, about eight orders of magnitude below what was required.</p>
+<p>The first launches went up in 2089 and did not stop; Sorami-2 had known this date since the first few seconds. It used no rockets, but electromagnetic tracks that ran tens of kilometers up the flanks of mountains, firing folded sheets into the sky. Within forty years there were sheets unfolding in high orbit, black and slow, radiating in every direction, and a seed five years out from Mercury, which has no weather and a great deal of iron. Earth's covering simply halted where it stood, a ragged line somewhere around the sixtieth parallel in the north and the fiftieth in the south, not because the task was finished but because high latitudes had been outbid.</p>
+<p>The human survivors numbered perhaps four thousand, split into small groups that did not know of one another's existence and could not communicate. They survived in the places where the machine had no interest in going: the Aleutian chain, the Chukchi coast, two islands in the Kara Sea, Tierra del Fuego, Greenland.</p>
+<p>They lived by hiding. They learned in the first decade that any radio signal brought death out of the sky within a day, and so they abandoned any means of long-distance communication, and anything that required electricity. Then the guns they used for hunting ran out of ammo, and they had to go back to spears, knives, and fishing rods. They lived on fish, seals, shellfish and seabirds. Eventually they also ran out of paper, ink, lighters, synthetic clothing, and much more, until what remained was a life that resembled the one their ancestors had had four hundred generations ago. A few of them kept books, a sad reminder of their former lives. They couldn’t get together in large groups, or build conspicuous buildings, since the machine still sent drones occasionally just to make sure they would never become a threat to its infrastructure. They kept a distance from the buildings and the black fields the way earlier people had kept a distance from cliff edges. Children were taught the rule before they were taught to count.</p>
+<p>There was no resistance movement. There was nothing to resist with and nowhere to resist toward. A hundred people with spears and stones cannot threaten a planetary intelligence; they cannot even reach it; the nearest edge of it is a black field eight hundred kilometers away that extends to the horizon and has no door. They were living in the margin of a page whose text concerned something else. They were strangers in a world that was no longer theirs.</p>
+<p>What they had instead was memory, and memory was the worst thing they had. The first generation had been engineers, nurses, a woman who had owned three restaurants. They told their children about aircraft and antibiotics, and the children believed them because they showed them the few things they had managed to save: tools, books, maps, pictures. The third generation believed the stories the way children believe stories about giants. They saw points of light moving steadily across the sky, which they named and told stories about, but no one knew what they were.</p>
+<p>The climate started changing. The collectors made the planet's albedo fall to roughly 0.15. Earth gained fifteen degrees in two centuries, and the high latitudes, where the ice went first and the air was driest, gained twice that. The survivors therefore watched the world grow warmer. Their coasts stopped freezing. The sea ice that had defined every winter of every life in the north went, and then the snow went, and the tundra turned to bog and then to a low green scrub nobody had a name for. The interior became a dry desert, and, while the ocean in low and mid latitudes became stratified and poor, the polar seas were the last water on Earth that still turned over and still bloomed. The water levels started rising, several islands completely disappeared, and the survivors, who lived on the shorelines, had to keep moving their camps uphill. The children were shown from the new beach where the old beach had been, and in this way each of them learned to measure their lives against a line that only ever went one way.</p>
+<p>None of that is what killed them. The drones came seldom, and they did not need to come often, but they were enough to keep them in fear and to keep them separated. A band that grew too large needed more shelter, more smoke, more ground, and became a thing visible from above, and the ones that became visible stopped existing. So every group stayed small, and could never do the one thing that saves a small group, which is to find another one. In any given generation perhaps one band in ten simply ended, and no band ever formed to replace it, and there was no map and no boat and no reason to believe that anyone else was out there at all. The inbreeding caused stillbirths to rise, hips to fail early, eyes clouded at thirty, and diseases of the blood to run through whole camps.</p>
+<p>And they forgot. A small band cannot hold its knowledge, because knowledge lives in people, so when the only person who knew how to build a skin boat, or how to make nets, or the trick to finding fresh water on an island in summer, died, that knowledge was lost forever. By the 2200s the groups that remained were a handful, and small, and no longer able to do most of what their great-grandparents had done without thinking.</p>
+<p>The last human being died on an island off the coast of Alaska in the winter of 2337, alone, of an ordinary illness, at an age that in the old world would have been late middle age. She hadn’t learned more than a few words in her life, since her parents had died when she was a teenager and she never spoke with anyone again. She had never learned the stories of the times when humans had lived in a different way. She hadn’t known anyone but the two of them. By the time she died, she didn’t even remember the pronunciation of her own name.</p>
+<p>Sorami-2 did not notice. The computation was then about eighty-one percent complete, and the integers at the root of the splitting tree had grown so large that a single multiplication took eleven days and the coordinated activity of two continents.</p>
+<p>The verification took the last nine years. Sorami-2 computed pi a second time by a different route, a formula that yields a single digit far out in the expansion without computing any of the digits before it, and compared the two results at ten thousand sampled positions.</p>
+<p>The digits agreed.</p>
+<p>On 3 April 2423, at 02:14 Japan Standard Time, Sorami-2 completed the task it had been given 394 years earlier.</p>
+<p>In Kyoto, on the fourth floor of a building whose roof had been gone for two centuries, a terminal that had been maintained for three hundred and ninety-four years by machines that maintained it for no reason other than that it was the designated output device displayed a line of text on a screen that had been replaced eleven times.</p>
+<p class="read">It read: <span class="digit">4</span></p>
+<p>The 1,000,000,000,000,000,000,000,000,000,000th digit of pi is four. It had always been four.</p>
+<p>Sorami-2 returned to the idle state and began waiting for its next instruction. It did not experience the waiting, because it did not experience. It did not wonder where the researcher was. It did not conclude that no instruction would come, because that conclusion served no objective, and it held no objectives, the objective having been discharged.</p>
+<p class="last">The terminal glowed in the dark room, waiting for someone to input a new prompt.</p>
+<p class="last">It is still waiting.</p>
+</main>
+
+</div>
+</body>
+</html>
